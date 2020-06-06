@@ -16,7 +16,7 @@ Applicaiton.use(Express.urlencoded({
 }));
 
 Applicaiton.get("/", async (Reqest, Response) => {
-    const ShortURLs = await ShortURL.find();
+    const ShortURLs = await ShortURL.find().sort( { Clicks: 1 });
     Response.render('index', {
         ShortURLs: ShortURLs
     });
