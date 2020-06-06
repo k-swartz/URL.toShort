@@ -1,3 +1,3 @@
 # WDS-URL-Shortener
 
-[Link](https://links.swartz.pw)
+[Link](https://links.swartz.me)
