@@ -1,0 +1,27 @@
+{
+  "name": "WDS-URL-Shortener",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "Develop": "nodemon ./Server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k-swartz/WDS-URL-Shortener.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k-swartz/WDS-URL-Shortener/issues"
+  },
+  "homepage": "https://github.com/k-swartz/WDS-URL-Shortener#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.18",
+    "shortid": "^2.2.15"
+  }
+}

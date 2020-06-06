@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL.toShort();</title>
+    <style type="text/css">
+        body {
+            padding-left: 3vmin;
+            padding-right: 3vmin;
+            color: rgb(55, 55, 55);
+        }
+
+        form {
+            margin-top: 1vmin;
+            margin-bottom: 1vmin;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form>* {
+            padding: 0;
+            margin: 0;
+        }
+
+        form>input {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            border: solid 1px black;
+            flex-grow: 5;
+            font-size: xx-large;
+            min-width: 100px;
+        }
+
+        form>button {
+            border-top-right-radius: 4px;
+            border: solid 1px black;
+            border-bottom-right-radius: 4px;
+            background-color: rgb(80, 200, 80);
+            color: rgb(220, 220, 220);
+            min-width: 200px;
+            font-size: xx-large;
+        }
+
+        label.hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>URL.toShort();</h1>
+    <form action="./ShortURL" method="POST">
+        <label for="FullURL" class="hide">URL</label>
+        <input type="URL" name="FullURL" id="FullURL" placeholder="URL" required />
+        <button type="submit">.toShort();</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Full URL</th>
+                <th>Short URL</th>
+                <th>Clicks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% ShortURLs.forEach((ShortURL) => { %>
+            <tr>
+                <td><a href="<%= ShortURL.FullURL %>"><%= ShortURL.FullURL %></a></td>
+                <td><a href="./<%= ShortURL.Short %>"><%= ShortURL.Short %></td>
+                <td><%= ShortURL.Clicks %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+
+</html>
