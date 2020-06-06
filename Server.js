@@ -29,6 +29,19 @@ Applicaiton.post('/ShortURL', async (Request, Response) => {
     Response.redirect('./');
 });
 
+Applicaiton.get('/Delete/:ShortURL', async (Request, Response) => {
+    const Short = await ShortURL.findOne({
+        Short: Request.params.ShortURL
+    });
+    if (Short.Clicks <= 5) {
+        await ShortURL.deleteOne({
+            Short: Request.params.ShortURL
+        });
+    }
+    Response.redirect('../');
+});
+
+
 Applicaiton.get("/:ShortURL", async (Request, Response) => {
     const Short = await ShortURL.findOne({
         Short: Request.params.ShortURL

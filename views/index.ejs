@@ -64,6 +64,7 @@
                 <th>Full URL</th>
                 <th>Short URL</th>
                 <th>Clicks</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -72,6 +73,11 @@
                 <td><a href="<%= ShortURL.FullURL %>"><%= ShortURL.FullURL %></a></td>
                 <td><a href="./<%= ShortURL.Short %>"><%= ShortURL.Short %></td>
                 <td><%= ShortURL.Clicks %></td>
+                <td>
+                    <% if (ShortURL.Clicks <= 5) { %>
+                        <a href="#" onclick="if (confirm('Delete?')) { window.location = './Delete/<%= ShortURL.Short %>' }">Delete</a>
+                    <% } %>
+                </td>
             </tr>
             <% }); %>
         </tbody>
