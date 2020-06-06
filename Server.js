@@ -16,7 +16,7 @@ Applicaiton.use(Express.urlencoded({
 }));
 
 Applicaiton.get("/", async (Reqest, Response) => {
-    const ShortURLs = await ShortURL.find().sort( { Clicks: 1 });
+    const ShortURLs = await ShortURL.find({Enabled: true}).sort( { Clicks: 1 });
     Response.render('index', {
         ShortURLs: ShortURLs
     });
@@ -34,9 +34,8 @@ Applicaiton.get('/Delete/:ShortURL', async (Request, Response) => {
         Short: Request.params.ShortURL
     });
     if (Short.Clicks <= 5) {
-        await ShortURL.deleteOne({
-            Short: Request.params.ShortURL
-        });
+        Short.Enabled = false;
+        Short.save();
     }
     Response.redirect('../');
 });

@@ -15,6 +15,11 @@ const ShortURLSchema = new Mongoose.Schema({
         type: Number,
         required: true,
         default: 0
+    },
+    Enabled: {
+        type: Boolean,
+        required: true,
+        default: true
     }
 });
 
